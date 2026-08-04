@@ -59,7 +59,6 @@ export default function Home() {
   >
     Instagram
   </a>
-
 </div>
 
 
@@ -91,25 +90,35 @@ export default function Home() {
         dining.
       </p>
 
-      <div className="flex flex-wrap justify-center gap-4 mt-10 px-4">
+    <div className="flex flex-wrap justify-center gap-4 mt-10">
 
-        <a
-          href="tel:9284542620"
-          className="bg-green-700 hover:bg-green-800 px-8 py-4 rounded-full text-white font-semibold transition duration-300 shadow-xl"
-        >
-          📞 Call Now
-        </a>
+  <a
+    href="tel:9284542620"
+    className="bg-green-700 hover:bg-green-800 px-8 py-4 rounded-full text-white font-semibold transition duration-300 shadow-xl"
+  >
+    📞 Call Now
+  </a>
 
-        <a
-          href="https://www.google.com/maps/dir/?api=1&destination=Hotel+Umed+Resto+Bar+Rumbhodi+Maharashtra"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-white font-semibold transition duration-300"
-        >
-          📍 Get Directions
-        </a>
 
-      </div>
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination=Hotel+Umed+Resto+Bar+Rumbhodi+Maharashtra"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-white font-semibold transition duration-300"
+  >
+    📍 Get Directions
+  </a>
+
+
+  <a
+    href="/rooms"
+    className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-4 rounded-full shadow-xl transition duration-300 hover:scale-105"
+  >
+    🏨 Book Stay
+  </a>
+
+
+</div>
 
     </div>
 
