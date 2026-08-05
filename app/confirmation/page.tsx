@@ -1,80 +1,72 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Confirmation(){
+function ConfirmationContent() {
+  const params = useSearchParams();
 
-const params = useSearchParams();
+  const room = params.get("room");
+  const name = params.get("name");
+  const amount = Number(params.get("amount"));
 
-const room = params.get("room");
-const name = params.get("name");
-const amount = Number(params.get("amount"));
+  return (
+    <main className="min-h-screen bg-green-50 flex items-center justify-center py-10">
+      <div className="bg-white p-10 rounded-3xl shadow-xl max-w-lg w-full text-center">
 
-return (
+        <h1 className="text-4xl font-bold text-green-900">
+          Booking Confirmed 🎉
+        </h1>
 
-<main className="min-h-screen bg-green-50 flex items-center justify-center py-10">
+        <p className="mt-6 text-lg">
+          Thank you, <b>{name}</b>
+        </p>
 
-<div className="bg-white p-10 rounded-3xl shadow-xl max-w-lg w-full text-center">
+        <div className="mt-8 bg-green-50 rounded-2xl p-6 text-left">
 
+          <p className="text-lg">
+            🏨 Room Number:
+            <b> {room}</b>
+          </p>
 
-<h1 className="text-4xl font-bold text-green-900">
-Booking Confirmed 🎉
-</h1>
+          <p className="mt-4">
+            💰 Total Amount:
+            <b> ₹{amount * 2}</b>
+          </p>
 
+          <p className="mt-4">
+            ✅ Advance Paid:
+            <b> ₹{amount}</b>
+          </p>
 
-<p className="mt-6 text-lg">
-Thank you, <b>{name}</b>
-</p>
+          <p className="mt-4">
+            Remaining Amount:
+            <b> ₹{amount}</b>
+          </p>
 
+        </div>
 
-<div className="mt-8 bg-green-50 rounded-2xl p-6 text-left">
+        <div className="mt-8">
 
+          <p className="text-gray-600">
+            Please show this confirmation at Hotel Umed reception.
+          </p>
 
-<p className="text-lg">
-🏨 Room Number:
-<b> {room}</b>
-</p>
+          <p className="mt-4 text-green-900 font-bold text-xl">
+            Thank you for choosing Hotel Umed 🌿
+          </p>
 
+        </div>
 
-<p className="mt-4">
-💰 Total Amount:
-<b> ₹{amount * 2}</b>
-</p>
+      </div>
+    </main>
+  );
+}
 
-
-<p className="mt-4">
-✅ Advance Paid:
-<b> ₹{amount}</b>
-</p>
-
-
-<p className="mt-4">
-Remaining Amount:
-<b> ₹{amount}</b>
-</p>
-
-
-</div>
-
-
-<div className="mt-8">
-
-<p className="text-gray-600">
-Please show this confirmation at Hotel Umed reception.
-</p>
-
-
-<p className="mt-4 text-green-900 font-bold text-xl">
-Thank you for choosing Hotel Umed 🌿
-</p>
-
-</div>
-
-
-</div>
-
-</main>
-
-)
-
+export default function Confirmation() {
+  return (
+    <Suspense fallback={<div className="p-10 text-center">Loading...</div>}>
+      <ConfirmationContent />
+    </Suspense>
+  );
 }
